@@ -1,0 +1,4 @@
+/* pages/function/post.wxss */
+.external-class {
+  height: 512rpx;
+}

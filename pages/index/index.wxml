@@ -1,0 +1,18 @@
+<!-- pages/index/index.wxml -->
+<t-tab-bar value="{{value}}" bindchange="onChange" shape="round" theme="tag" split="{{false}}">
+  <t-tab-bar-item wx:for="{{list}}" wx:key="index" value="{{item.value}}" icon="{{item.icon}}" ariaLabel="{{item.ariaLabel}}">
+    {{item.label}}
+  </t-tab-bar-item>
+</t-tab-bar>
+
+<view class="container">
+  <t-swiper current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" navigation="{{navigation}}" paginationPosition="{{paginationPosition}}" list="{{swiperList}}">
+  </t-swiper>
+</view>
+<t-divider content="热帖发布" />
+<view class="button-example">
+  <t-button theme="primary" size="small" icon="books" bindtap="toPage" data-url="zl">资料</t-button>
+  <t-button theme="primary" size="small" icon="discount" bindtap="toPage" data-url="sc">商城</t-button>
+  <t-button theme="primary" size="small" icon="chat" bindtap="toPage" data-url="sq">社区</t-button>
+  <t-button theme="primary" size="small" icon="edit-1" bindtap="toPage" data-url="post">发帖</t-button>
+</view>
