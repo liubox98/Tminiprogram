@@ -51,8 +51,8 @@ Page({
   },
   toPage(event) {
     const url = event.currentTarget.dataset.url;
-    console.log('url', url)
-    navigateToPage(url)
+    console.log("url", url);
+    navigateToPage(url);
   },
 
   /**

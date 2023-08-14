@@ -1,0 +1,10 @@
+<!--pages/function/postDetail/postDetail.wxml-->
+<view class="post-detail">
+  <view class="post-header">
+    <t-avatar class="avatar" image="{{ selectedPost.avatar }}" size="24px">{{ selectedPost.author }}</t-avatar>
+    <view class="post-author">{{ selectedPost.author }}</view>
+    <view class="post-createtime">{{ selectedPost.formattedTime }}</view>
+  </view>
+  <view class="post-text">{{ selectedPost.content }}</view>
+  <t-tag class="margin-16" icon="books" variant="light" theme="success">{{ selectedPost.tags }}</t-tag>
+</view>

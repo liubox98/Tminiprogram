@@ -1,28 +1,38 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/function/post/post"
-    ],
-    "usingComponents": {
-        "t-search": "tdesign-miniprogram/search/search",
-        "t-button": "tdesign-miniprogram/button/button",
-        "t-icon": "tdesign-miniprogram/icon/icon",
-        "t-swiper": "tdesign-miniprogram/swiper/swiper",
-        "t-tab-bar": "tdesign-miniprogram/tab-bar/tab-bar",
-        "t-tab-bar-item": "tdesign-miniprogram/tab-bar-item/tab-bar-item",
-        "t-divider": "tdesign-miniprogram/divider/divider",
-        "t-fab": "tdesign-miniprogram/fab/fab",
-        "t-input": "tdesign-miniprogram/input/input",
-        "t-textarea": "tdesign-miniprogram/textarea/textarea",
-        "t-upload": "tdesign-miniprogram/upload/upload"
-        
-    },
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#f6f6f6",
-        "backgroundColor": "#f6f6f6",
-        "navigationBarTitleText": "多功能平台",
-        "navigationBarTextStyle": "black"
-    },
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/index/index",
+    "pages/function/post/post",
+    "pages/function/postList/postList",
+    "pages/function/postDetail/postDetail"
+  ],
+  "usingComponents": {
+    "t-search": "tdesign-miniprogram/search/search",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-swiper": "tdesign-miniprogram/swiper/swiper",
+    "t-tab-bar": "tdesign-miniprogram/tab-bar/tab-bar",
+    "t-tab-bar-item": "tdesign-miniprogram/tab-bar-item/tab-bar-item",
+    "t-divider": "tdesign-miniprogram/divider/divider",
+    "t-fab": "tdesign-miniprogram/fab/fab",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-textarea": "tdesign-miniprogram/textarea/textarea",
+    "t-upload": "tdesign-miniprogram/upload/upload",
+    "t-cell-group": "tdesign-miniprogram/cell-group/cell-group",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-picker": "tdesign-miniprogram/picker/picker",
+    "t-picker-item": "tdesign-miniprogram/picker-item/picker-item",
+    "t-footer": "tdesign-miniprogram/footer/footer",
+    "t-avatar": "tdesign-miniprogram/avatar/avatar",
+    "t-avatar-group": "tdesign-miniprogram/avatar-group/avatar-group",
+    "t-tag": "tdesign-miniprogram/tag/tag",
+    "t-check-tag": "tdesign-miniprogram/check-tag/check-tag"
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f6f6f6",
+    "backgroundColor": "#f6f6f6",
+    "navigationBarTitleText": "多功能平台",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
 }

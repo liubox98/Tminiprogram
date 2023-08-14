@@ -7,6 +7,6 @@ module.exports = {
   redirectToTab(targetPage) {
     wx.redirectTo({
       url: `/pages/${targetPage}/${targetPage}`,
-    })
-  }
-}
+    });
+  },
+};

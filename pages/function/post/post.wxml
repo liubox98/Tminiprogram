@@ -1,12 +1,17 @@
 <!-- pages/function/post.wxml -->
 
+<t-textarea t-class="external-class" placeholder="此刻想和大家分享些什么呢？" maxlength="300" bind:change="handleContentInput" disableDefaultPadding="{{true}}" indicator />
 
-<t-textarea t-class="external-class" bindinput="handleContentInput" placeholder="此刻想和大家分享些什么呢？" maxlength="200" disableDefaultPadding="{{true}}" indicator />
-<view class="wrapper">
+<view class=" wrapper">
   <t-upload mediaType="{{['video','image']}}" max="{{4}}" files="{{fileList}}" bind:add="handleAdd" bind:remove="handleRemove">
   </t-upload>
 </view>
 
+<t-cell class="mb-16" title="# 选择话题" arrow hover note="{{cityText}}" bind:click="onCityPicker" />
+<t-picker visible="{{cityVisible}}" value="{{cityValue}}" data-key="city" cancelBtn="取消" confirmBtn="确认" bindchange="onPickerChange" bindpick="onColumnChange" bindcancel="onPickerCancel">
+  <t-picker-item options="{{citys}}" />
+</t-picker>
+
 <view class="button-example">
-  <t-button theme="primary" size="large" bind:tap="handleSubmit" block>提交</t-button>
+  <t-button theme="primary" size="medium" bind:tap="handleSubmit" block>提交</t-button>
 </view>

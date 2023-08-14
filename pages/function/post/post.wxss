@@ -1,4 +1,8 @@
 /* pages/function/post.wxss */
 .external-class {
-  height: 512rpx;
+  height: 365rpx;
+}
+
+.mb-16 {
+  margin-bottom: 32rpx;
 }

@@ -1,0 +1,32 @@
+<!--pages/function/postList/postList.wxml-->
+<view class="example-search">
+  <t-search model:value="{{value}}" placeholder="搜索帖子" />
+</view>
+
+<view class="post-list">
+  <block wx:for="{{ postList }}" wx:key="index">
+    <t-divider />
+    <view class="post-item" bind:tap="navigateToPostDetail" data-index="{{ index }}">
+      <view class="post-header">
+        <t-avatar class="avatar" image="{{ item.avatar }}" size="24px">{{item.author}}</t-avatar>
+        <view class="post-author">{{ item.author }}</view>
+        <view class="post-createtime">{{ item.formattedTime }}</view>
+      </view>
+      <view class="post-text">{{ item.content }}</view>
+
+      <view wx:if="{{ item.file.length > 0 }}">
+        <view wx:for="{{ item.file }}" wx:key="index">
+          <view wx:if="{{ item.endsWith('.mp4') }}">[ 视频 ]</view>
+          <view wx-else-if="{{ item.endsWith('.png') || item.endsWith('.jpg') || item.endsWith('.jpeg') }}">[ 图片 ]</view>
+        </view>
+      </view>
+
+
+
+
+      <t-tag class="margin-16" icon="books" variant="light" theme="success">{{ item.tags }}</t-tag>
+    </view>
+  </block>
+</view>
+
+<t-fab icon="add" bind:click="handleClick" aria-label="增加" />
