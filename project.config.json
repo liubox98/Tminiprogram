@@ -35,10 +35,10 @@
         "tabSize": 4
     },
     "condition": {},
-    "appid": "wxdb41a893a9156073",
     "libVersion": "2.20.2",
     "packOptions": {
         "ignore": [],
         "include": []
-    }
+    },
+    "appid": "wxdb41a893a9156073"
 }

@@ -22,9 +22,7 @@ Page({
     const index = event.currentTarget.dataset.index;
     const post = this.data.postList[index];
     wx.navigateTo({
-      url: `/pages/function/postDetail/postDetail?post=${JSON.stringify(
-        post
-      )}`,
+      url: `/pages/function/postDetail/postDetail?post=${JSON.stringify(post)}`,
     });
   },
 
@@ -49,7 +47,6 @@ Page({
           this.setData({
             postList: postList,
           });
-          console.log('postList', postList)
         },
       });
   },

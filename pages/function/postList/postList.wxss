@@ -30,8 +30,16 @@
 .post-text {
   margin-top: 8px;
   font-size: 14px;
-  line-height: 4.4;
+  /* line-height: 1.4;
+  max-height: 4.2em; */
+  /* 大约三行的高度，根据实际情况调整 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 显示省略号 */
+  white-space: nowrap;
+  /* 防止文本换行 */
 }
+
 
 .margin-16 {
   margin-top: 16px;
@@ -41,3 +49,38 @@
   margin-top: 8px;
 }
 
+.icon-text-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon-attach {
+  color: #bbbbbb;
+  /* 设置图标颜色 */
+  margin-right: 4px;
+  /* 调整图标和文字之间的间距 */
+}
+
+.icon-text {
+  font-size: 12px;
+  /* 设置文字大小 */
+  color: #bbbbbb;
+  /* 设置文字颜色 */
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon-group {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  /* 这会将图标组推到右侧 */
+}
+
+.icon-thumb-up,
+.icon-chat {
+  margin-left: 20px;
+}

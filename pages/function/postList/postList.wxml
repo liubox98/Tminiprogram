@@ -1,4 +1,4 @@
-<!--pages/function/postList/postList.wxml-->
+<!-- pages/function/postList/postList.wxml -->
 <view class="example-search">
   <t-search model:value="{{value}}" placeholder="搜索帖子" />
 </view>
@@ -6,7 +6,7 @@
 <view class="post-list">
   <block wx:for="{{ postList }}" wx:key="index">
     <t-divider />
-    <view class="post-item" style="height: 100px;" bind:tap="navigateToPostDetail" data-index="{{ index }}">
+    <view class="post-item" bind:tap="navigateToPostDetail" data-index="{{ index }}">
       <view class="post-header">
         <t-avatar class="avatar" image="{{ item.avatar }}" size="24px">{{item.author}}</t-avatar>
         <view class="post-author">{{ item.author }}</view>
@@ -15,12 +15,24 @@
 
       <view class="post-text">{{ item.content }}</view>
 
-      <view wx:if="{{ item.file.length > 0 }}">
-        [ 文件 ]
+      <view class="icon-text-container">
+        <block wx:if="{{ item.file.length > 0 }}">
+          <t-icon name="attach" class="icon-attach" />
+          <text class="icon-text">附件</text>
+        </block>
       </view>
 
-      <t-tag wx:if="{{item.tags}}" class=" margin-16" icon="books" variant="light" theme="success">{{ item.tags }}</t-tag>
     </view>
+
+    <view class="icon-container">
+      <t-tag wx:if="{{item.tags}}" class="margin-16" icon="books" variant="light" theme="success">{{ item.tags }}</t-tag>
+      <view class="icon-group">
+        <t-icon name="thumb-up" class="icon-thumb-up" />
+        <t-icon name="chat" class="icon-chat" />
+      </view>
+    </view>
+
+
   </block>
 </view>
 

@@ -7,7 +7,6 @@
   </view>
 
   <view class="post-text">{{ post.content }}</view>
-  <!-- <t-textarea t-class="external-class" value="{{post.content}}" /> -->
 
   <video wx:if="{{ videoPath }}" src="{{ videoPath }}" mode="aspectFit" controls />
   <view wx:else>
@@ -20,7 +19,13 @@
       </view>
     </view>
   </view>
-
   <t-divider />
-  <t-tag wx:if="{{post.tags}}" class="margin-16" icon="books" variant="light" theme="success">{{ post.tags }}</t-tag>
+  <view class="icon-container">
+    <t-tag wx:if="{{post.tags}}" class="margin-16" icon="books" variant="light" theme="success">{{ post.tags }}</t-tag>
+    <view class="icon-group">
+      <t-icon name="thumb-up" class="icon-thumb-up" />
+      <t-icon name="chat" class="icon-chat" />
+    </view>
+  </view>
+  <t-divider />
 </view>

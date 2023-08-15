@@ -30,10 +30,7 @@
 
 .post-text {
   margin-top: 8px;
-  font-size: 14px;
-  line-height: 1.4;
-  max-height: 4.2em; /* 大约三行的高度，根据实际情况调整 */
-  overflow: hidden;
+  font-size: 18px;
 }
 
 .margin-16 {
@@ -42,4 +39,21 @@
 
 .t-tag {
   margin-top: 8px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon-group {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  /* 这会将图标组推到右侧 */
+}
+
+.icon-thumb-up,
+.icon-chat {
+  margin-left: 20px;
 }
