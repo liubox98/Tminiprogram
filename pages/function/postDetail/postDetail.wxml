@@ -1,10 +1,26 @@
 <!--pages/function/postDetail/postDetail.wxml-->
 <view class="post-detail">
   <view class="post-header">
-    <t-avatar class="avatar" image="{{ selectedPost.avatar }}" size="24px">{{ selectedPost.author }}</t-avatar>
-    <view class="post-author">{{ selectedPost.author }}</view>
-    <view class="post-createtime">{{ selectedPost.formattedTime }}</view>
+    <t-avatar class="avatar" image="{{ post.avatar }}" alt="{{post.author}}" size="24px">{{ post.author }}</t-avatar>
+    <view class="post-author">{{ post.author }}</view>
+    <view class="post-createtime">{{ post.formattedTime }}</view>
   </view>
-  <view class="post-text">{{ selectedPost.content }}</view>
-  <t-tag class="margin-16" icon="books" variant="light" theme="success">{{ selectedPost.tags }}</t-tag>
+
+  <view class="post-text">{{ post.content }}</view>
+  <!-- <t-textarea t-class="external-class" value="{{post.content}}" /> -->
+
+  <video wx:if="{{ videoPath }}" src="{{ videoPath }}" mode="aspectFit" controls />
+  <view wx:else>
+    <view wx:for="{{ post.file }}" wx:key="index">
+      <view wx:if="{{ item.includes('.mp4') }}">
+        <video src="{{ item }}" mode="aspectFit" controls />
+      </view>
+      <view wx:else>
+        <image src="{{ item }}" mode="aspectFit" />
+      </view>
+    </view>
+  </view>
+
+  <t-divider />
+  <t-tag wx:if="{{post.tags}}" class="margin-16" icon="books" variant="light" theme="success">{{ post.tags }}</t-tag>
 </view>

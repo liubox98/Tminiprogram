@@ -20,10 +20,10 @@ Page({
   onLoad(options) {},
   navigateToPostDetail(event) {
     const index = event.currentTarget.dataset.index;
-    const selectedPost = this.data.postList[index];
+    const post = this.data.postList[index];
     wx.navigateTo({
       url: `/pages/function/postDetail/postDetail?post=${JSON.stringify(
-        selectedPost
+        post
       )}`,
     });
   },

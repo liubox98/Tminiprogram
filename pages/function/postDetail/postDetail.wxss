@@ -32,6 +32,8 @@
   margin-top: 8px;
   font-size: 14px;
   line-height: 1.4;
+  max-height: 4.2em; /* 大约三行的高度，根据实际情况调整 */
+  overflow: hidden;
 }
 
 .margin-16 {

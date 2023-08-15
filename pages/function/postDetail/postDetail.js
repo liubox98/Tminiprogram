@@ -4,16 +4,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    selectedPost: null,
+    post: null,
+    videoPath: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const selectedPost = JSON.parse(options.post);
+    const post = JSON.parse(options.post);
+    const videoPath = post.file.find((item) => item.includes(".mp4"));
     this.setData({
-      selectedPost: selectedPost,
+      post: post,
+      videoPath: videoPath || "", // 如果不存在视频，则置为空字符串
     });
   },
 
