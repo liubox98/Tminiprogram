@@ -1,10 +1,12 @@
 <!-- pages/function/postList/postList.wxml -->
 <view class="example-search">
-  <t-search model:value="{{value}}" placeholder="搜索帖子" />
+  <t-search model:value="{{value}}" placeholder="点击搜索帖子" shape="round" bind:change="handleSearchInput" />
 </view>
 
+<t-empty wx:if="{{!postList || postList.length === 0}}" icon="info-circle-filled" description="暂无内容" />
+
 <view class="post-list">
-  <block wx:for="{{ postList }}" wx:key="index">
+  <block wx:for="{{ filteredPostList }}" wx:key="index">
     <t-divider />
     <view class="post-item" bind:tap="navigateToPostDetail" data-index="{{ index }}">
       <view class="post-header">
@@ -27,12 +29,15 @@
     <view class="icon-container">
       <t-tag wx:if="{{item.tags}}" class="margin-16" icon="books" variant="light" theme="success">{{ item.tags }}</t-tag>
       <view class="icon-group">
-        <t-icon name="thumb-up" class="icon-thumb-up" />
+
+        <view class="like-container" bind:tap="handleThumbUp" data-index="{{ index }}">
+          <t-icon name="thumb-up" class="like-icon" color="{{ item.isLiked ? 'red' : 'black' }}" />
+          <text class="like-text">{{ item.likes }}</text>
+        </view>
         <t-icon name="chat" class="icon-chat" />
+        <text class="like-text">{{ item.comments }}</text>
       </view>
     </view>
-
-
   </block>
 </view>
 

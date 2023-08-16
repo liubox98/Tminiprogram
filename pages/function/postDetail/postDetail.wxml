@@ -23,8 +23,12 @@
   <view class="icon-container">
     <t-tag wx:if="{{post.tags}}" class="margin-16" icon="books" variant="light" theme="success">{{ post.tags }}</t-tag>
     <view class="icon-group">
-      <t-icon name="thumb-up" class="icon-thumb-up" />
+      <view class="like-container" bind:tap="handleThumbUp">
+        <t-icon name="thumb-up" class="like-icon" color="{{ post.isLiked ? 'red' : 'black' }}" />
+        <text class="like-text">{{ post.likes }}</text>
+      </view>
       <t-icon name="chat" class="icon-chat" />
+      <text class="like-text">{{ post.comments }}</text>
     </view>
   </view>
   <t-divider />

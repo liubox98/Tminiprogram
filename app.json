@@ -25,7 +25,10 @@
     "t-avatar": "tdesign-miniprogram/avatar/avatar",
     "t-avatar-group": "tdesign-miniprogram/avatar-group/avatar-group",
     "t-tag": "tdesign-miniprogram/tag/tag",
-    "t-check-tag": "tdesign-miniprogram/check-tag/check-tag"
+    "t-check-tag": "tdesign-miniprogram/check-tag/check-tag",
+    "t-empty": "tdesign-miniprogram/empty/empty",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-image": "tdesign-miniprogram/image/image"
   },
   "window": {
     "backgroundTextStyle": "light",

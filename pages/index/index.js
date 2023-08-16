@@ -4,6 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imageDialogVisible: false, // 控制对话框的显示
     current: 2,
     autoplay: true,
     duration: 500,
@@ -26,6 +27,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    // 从全局数据获取是否要显示对话框
+    const app = getApp();
+    if (app.globalData.imageDialogVisible) {
+      this.setData({
+        imageDialogVisible: true,
+      });
+    }
+
     const imageCdn = "https://tdesign.gtimg.com/miniprogram/images";
     const swiperList = [
       `${imageCdn}/swiper1.png`,
@@ -38,6 +47,37 @@ Page({
     this.setData({
       swiperList, // Set swiperList in the data using setData
     });
+  },
+  handleConfirm() {
+    // 用户点击确认后，弹出获取用户信息权限申请
+    wx.getUserProfile({
+      desc: "获取你的昵称、头像等信息", // 向用户说明授权用途
+      success: (res) => {
+        console.log("用户已授权获取用户信息", res.userInfo);
+        const userInfo = res.userInfo;
+        const app = getApp();
+        app.globalData.userInfo = userInfo;
+      },
+      fail: (err) => {
+        console.error("获取用户信息失败", err);
+      },
+    });
+
+    // 关闭对话框，并更新全局数据
+    this.setData({
+      imageDialogVisible: false,
+    });
+    const app = getApp();
+    app.globalData.imageDialogVisible = false;
+  },
+
+  closeDialog() {
+    // 关闭对话框，并更新全局数据
+    this.setData({
+      imageDialogVisible: false,
+    });
+    const app = getApp();
+    app.globalData.imageDialogVisible = false;
   },
 
   onChange(e) {

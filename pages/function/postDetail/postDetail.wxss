@@ -1,5 +1,4 @@
 /* pages/function/postDetail/postDetail.wxss */
-/* pages/function/postList/postList.wxss */
 .avatar {
   width: 32px;
   height: 32px;
@@ -53,7 +52,19 @@
   /* 这会将图标组推到右侧 */
 }
 
-.icon-thumb-up,
+.like-container {
+  display: flex;
+  align-items: center;
+}
+
+.like-icon {
+  margin-right: 2px; /* 调整图标和文本之间的间距 */
+}
+
 .icon-chat {
-  margin-left: 20px;
+  margin-right: 2px; /* 调整图标和文本之间的间距 */
+}
+
+.like-text {
+  margin-right: 8px; /* 调整文本之间的间距 */
 }

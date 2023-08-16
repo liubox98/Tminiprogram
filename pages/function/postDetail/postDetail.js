@@ -1,4 +1,6 @@
 // pages/function/postDetail/postDetail.js
+import { getPostList, handleThumbUp } from "../../../utils/post";
+
 Page({
   /**
    * 页面的初始数据
@@ -6,6 +8,27 @@ Page({
   data: {
     post: null,
     videoPath: null,
+  },
+
+  handleThumbUp() {
+    const post = this.data.post;
+
+    handleThumbUp(
+      post,
+      () => {
+        // 更新点赞数量和点赞状态
+        post.likes += 1;
+        post.isLiked = true;
+
+        this.setData({
+          post: post,
+        });
+        console.log("点赞成功");
+      },
+      () => {
+        console.error("点赞失败");
+      }
+    );
   },
 
   /**
@@ -16,7 +39,15 @@ Page({
     const videoPath = post.file.find((item) => item.includes(".mp4"));
     this.setData({
       post: post,
-      videoPath: videoPath || "", // 如果不存在视频，则置为空字符串
+      videoPath: videoPath || "",
+    });
+
+    // 在详情页加载时重新获取帖子信息，以确保点赞状态和数量正确
+    getPostList((postList) => {
+      const updatedPost = postList.find((item) => item._id === post._id);
+      this.setData({
+        post: updatedPost,
+      });
     });
   },
 

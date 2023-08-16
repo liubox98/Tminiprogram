@@ -93,36 +93,31 @@ Page({
   },
 
   handleSubmit() {
-    wx.getUserProfile({
-      desc: "获取你的昵称、头像等信息", // 向用户说明授权用途
+    const userInfo = getApp().globalData.userInfo;
+    const db = wx.cloud.database();
+    const selectedImages = this.data.fileList.map((file) => file.fileId);
+
+    db.collection("post").add({
+      data: {
+        author: userInfo.nickName,
+        avatar: userInfo.avatarUrl,
+        content: this.data.content,
+        file: selectedImages,
+        tags: this.data.selectedCity,
+        createtime: new Date().getTime(),
+        likes: 0,
+        likers: [], // 初始为空数组
+        comments: 0,
+      },
       success: (res) => {
-        const userInfo = res.userInfo; // 获取用户信息
-
-        const db = wx.cloud.database();
-        const selectedImages = this.data.fileList.map((file) => file.fileId);
-
-        db.collection("post").add({
-          data: {
-            author: userInfo.nickName,
-            avatar: userInfo.avatarUrl,
-            content: this.data.content,
-            file: selectedImages,
-            tags: this.data.selectedCity,
-            createtime: new Date().getTime(),
-            likes: 0,
-            comments: 0,
-          },
-          success: (res) => {
-            wx.showToast({
-              title: "发帖成功",
-              icon: "success",
-              duration: 2000,
-              success: () => {
-                setTimeout(() => {
-                  wx.navigateBack();
-                }, 2000);
-              },
-            });
+        wx.showToast({
+          title: "发帖成功",
+          icon: "success",
+          duration: 2000,
+          success: () => {
+            setTimeout(() => {
+              wx.navigateBack();
+            }, 2000);
           },
         });
       },
