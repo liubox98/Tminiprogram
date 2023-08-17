@@ -4,12 +4,6 @@
   <t-image slot="top" t-class="dialog-image" src="https://tdesign.gtimg.com/miniprogram/images/dialog1.png" />
 </t-dialog>
 
-<t-tab-bar value="{{value}}" bindchange="onChange" shape="round" theme="tag" split="{{false}}">
-  <t-tab-bar-item wx:for="{{list}}" wx:key="index" value="{{item.value}}" icon="{{item.icon}}" ariaLabel="{{item.ariaLabel}}">
-    {{item.label}}
-  </t-tab-bar-item>
-</t-tab-bar>
-
 <view class="container">
   <t-swiper current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" navigation="{{navigation}}" paginationPosition="{{paginationPosition}}" list="{{swiperList}}">
   </t-swiper>
@@ -18,8 +12,15 @@
 <t-divider content="热门功能" />
 
 <view class="button-example">
-  <t-button theme="light" icon="books" bindtap="toPage" data-url="zl">资料</t-button>
-  <t-button theme="light" icon="discount" bindtap="toPage" data-url="zl">商城</t-button>
-  <t-button theme="light" icon="chat" bindtap="toPage" data-url="postList">社区</t-button>
-  <t-button theme="light" icon="edit-1" bindtap="toPage" data-url="post">发帖</t-button>
+  <t-button icon="books" bindtap="toPage" data-url="zl">资料</t-button>
+  <t-button icon="chat" bindtap="toPage" data-url="postList">社区</t-button>
+  <t-button icon="edit-1" bindtap="toPage" data-url="post">发帖</t-button>
 </view>
+
+<t-tab-bar defaultValue="label1" split="{{false}}">
+  <t-tab-bar-item badge-props="{{ {count: 16} }}" ariaLabel="首页，有16条消息" value="label1" icon="home">首页</t-tab-bar-item>
+  <t-tab-bar-item badge-props="{{ { dot: true } }}" ariaLabel="软件，有新的消息" value="label2" icon="app">软件</t-tab-bar-item>
+  <t-tab-bar-item badge-props="{{ {count: 'New'} }}" ariaLabel="聊天，New" value="label3" icon="chat">聊天</t-tab-bar-item>
+  <t-tab-bar-item badge-props="{{ {count: 16} }}" ariaLabel="首页，有16条消息" value="label1" icon="home">商城</t-tab-bar-item>
+  <t-tab-bar-item badge-props="{{ {count: '···'} }}" ariaLabel="我的，有很多消息" value="label4" icon="user">我的</t-tab-bar-item>
+</t-tab-bar>

@@ -11,16 +11,6 @@ Page({
     interval: 5000,
     paginationPosition: "bottom-right",
     swiperList: [], // Initialize as an empty array
-    navigation: {
-      type: "fraction",
-    },
-    value: "index",
-    list: [
-      { value: "index", icon: "home", ariaLabel: "首页" },
-      { value: "app", icon: "app", ariaLabel: "软件" },
-      { value: "chat", icon: "chat", ariaLabel: "聊天" },
-      { value: "user", icon: "user", ariaLabel: "我的" },
-    ],
   },
 
   /**
@@ -35,7 +25,7 @@ Page({
       });
     }
 
-    const imageCdn = "https://tdesign.gtimg.com/miniprogram/images";
+    const imageCdn = "http://192.168.3.41:8080/miniprogram/images";
     const swiperList = [
       `${imageCdn}/swiper1.png`,
       `${imageCdn}/swiper2.png`,
@@ -80,15 +70,6 @@ Page({
     app.globalData.imageDialogVisible = false;
   },
 
-  onChange(e) {
-    const newValue = e.detail.value;
-    const currentPath = getCurrentPages().slice(-1)[0].route;
-
-    if (newValue !== this.data.value || currentPath !== newValue) {
-      this.setData({ value: newValue });
-      redirectToTab(newValue);
-    }
-  },
   toPage(event) {
     const url = event.currentTarget.dataset.url;
     console.log("url", url);

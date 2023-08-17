@@ -95,7 +95,9 @@ Page({
   handleSubmit() {
     const userInfo = getApp().globalData.userInfo;
     const db = wx.cloud.database();
-    const selectedImages = this.data.fileList.map((file) => file.fileId);
+    const selectedImages = this.data.fileList
+      .filter((file) => file.fileId) // 过滤掉 fileId 为 null 的文件
+      .map((file) => file.fileId);
 
     db.collection("post").add({
       data: {

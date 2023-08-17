@@ -10,15 +10,19 @@
 
   <video wx:if="{{ videoPath }}" src="{{ videoPath }}" mode="aspectFit" controls />
   <view wx:else>
-    <view wx:for="{{ post.file }}" wx:key="index">
-      <view wx:if="{{ item.includes('.mp4') }}">
-        <video src="{{ item }}" mode="aspectFit" controls />
-      </view>
-      <view wx:else>
-        <image src="{{ item }}" mode="aspectFit" />
+    <view wx:if="{{ post.file && post.file.length > 0 }}">
+      <view wx:for="{{ post.file }}" wx:key="index">
+        <view wx:if="{{ item.includes('.mp4') }}">
+          <video src="{{ item }}" mode="aspectFit" controls />
+        </view>
+        <view wx:else>
+          <image src="{{ item }}" mode="aspectFit" />
+        </view>
       </view>
     </view>
   </view>
+
+
   <t-divider />
   <view class="icon-container">
     <t-tag wx:if="{{post.tags}}" class="margin-16" icon="books" variant="light" theme="success">{{ post.tags }}</t-tag>
